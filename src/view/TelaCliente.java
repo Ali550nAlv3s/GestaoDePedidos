@@ -119,6 +119,17 @@ public class TelaCliente extends javax.swing.JFrame {
 
         jLabel10.setText("Cidade");
 
+        jTxtNome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTxtNomeMouseClicked(evt);
+            }
+        });
+        jTxtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtNomeActionPerformed(evt);
+            }
+        });
+
         jTxtNumero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtNumeroActionPerformed(evt);
@@ -148,6 +159,11 @@ public class TelaCliente extends javax.swing.JFrame {
 
         buttonGroup1.add(jRdBtnJuridica);
         jRdBtnJuridica.setText("Pessoa Jurídica");
+        jRdBtnJuridica.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jRdBtnJuridicaMouseClicked(evt);
+            }
+        });
         jRdBtnJuridica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jRdBtnJuridicaActionPerformed(evt);
@@ -176,6 +192,11 @@ public class TelaCliente extends javax.swing.JFrame {
                 "Nome", "Documento", "Tipo Cliente", "E-mail", "Data Cadastro"
             }
         ));
+        jTblClientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTblClientesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTblClientes);
 
         jBtnAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/create.png"))); // NOI18N
@@ -494,6 +515,37 @@ public class TelaCliente extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTxtNomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTxtNomeMouseClicked
+        
+    }//GEN-LAST:event_jTxtNomeMouseClicked
+
+    private void jTxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtNomeActionPerformed
+
+    private void jTblClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTblClientesMouseClicked
+        // TODO add your handling code here:
+        jTxtNome.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 0).toString());
+        jTxtDocumento.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 1).toString());
+        jTxtEmail.setText(jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString());
+        
+        String tipo = jTblClientes.getValueAt(jTblClientes.getSelectedRow(), 2).toString();
+        if("Pessoa Física".equals(tipo)){
+            jRdBtnFisica.setSelected(true);
+            jRdBtnJuridica.setSelected(false);
+        }else if("Pessoa Jurídica".equals(tipo)){
+            jRdBtnJuridica.setSelected(true);
+            jRdBtnFisica.setSelected(false);
+
+        }
+        
+    }//GEN-LAST:event_jTblClientesMouseClicked
+
+    private void jRdBtnJuridicaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRdBtnJuridicaMouseClicked
+        // TODO add your handling code here:
+            
+    }//GEN-LAST:event_jRdBtnJuridicaMouseClicked
 
     /**
      * @param args the command line arguments
